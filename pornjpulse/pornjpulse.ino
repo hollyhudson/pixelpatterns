@@ -90,6 +90,7 @@ void loop() {
 		pixels.setPixelColor(i, r, g, b);
 
 	}
+	// FOR SPARKLY EFFECT
 	// Make flashes; 10% the time, turn on pixel on full brightness
 	//if (random(200) == 0)
 		//pixels.setPixelColor(random(0, NUM_PIXELS), 255, 255, 255);
