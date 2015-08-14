@@ -3,12 +3,13 @@
 #include <Adafruit_NeoPixel.h>
 
 #define PIN		14   // B5 on teensy
-#define NUM_PIXELS 	7	
+#define NUM_PIXELS 	100	
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(
 	NUM_PIXELS,			// how many pixels on strip?
 	PIN,				// output pin?
-	NEO_GRB + NEO_KHZ800		// type of pixels?
+	//NEO_GRB + NEO_KHZ800		// type of pixels?
+	NEO_RGB + NEO_KHZ800		// type of pixels?
 );
 
 int brightnesses[NUM_PIXELS];
