@@ -2,8 +2,8 @@
  */
 #include <Adafruit_NeoPixel.h>
 
-#define PIN		14   // B5 on teensy
-#define NUM_PIXELS 	100	
+#define PIN		8
+#define NUM_PIXELS 	50	
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(
 	NUM_PIXELS,			// how many pixels on strip?
@@ -26,19 +26,21 @@ void setup() {
 	//Serial.begin(9600); // debug
 	for(int i=0; i < NUM_PIXELS; i++){
 		directions[i] = +1;
+                brightnesses[i] = 0;
 	}
 }
 
 void loop() {
 	for(int i = 0 ; i < NUM_PIXELS ; i++)
 	{
-		if (pixels.getPixelColor(i) == 0x0 || brightnesses[i] == 0){
+		if (/*pixels.getPixelColor(i) == 0x0 ||*/ brightnesses[i] == 0){
 			// If pixel has gone down to black
 			// set it to ramp up again, the higher stayBlack is, the longer
 			// it stays black
 
-			int stayBlack = 100;
-			if (random(stayBlack) == 0){ 
+			int stayBlack = 80;
+			if (random(stayBlack) == 0)
+                        { 
 				directions[i] = +1;	
 				brightnesses[i] = 1; // no endless loops
 				// pick pink or orange
@@ -55,9 +57,9 @@ void loop() {
 					g = 10;
 					b = 10;
 				}
-			} else {
-				r = g = b = 0;
-			}	
+			}
+// start at zero
+			r = g = b = 0;
 
 		} else {
 
@@ -66,7 +68,7 @@ void loop() {
 			//Serial.println(i);
 			////Serial.println(brightnesses[i]);
 			// change direction at some point
-			int maxBrightness = 50;
+			int maxBrightness = 40;
 			int minBrightness = 20; // minimum peak brightness
 			//if (brightnesses[i] == random(minBrightness,maxBrightness) || brightnesses[i] == maxBrightness)
 			if (brightnesses[i] == maxBrightness)
@@ -83,7 +85,7 @@ void loop() {
 				//Serial.println("in orange");
 				r = brightnesses[i];
 				g = brightnesses[i]/5;
-				b = brightnesses[i]/5;
+				b = 0; //brightnesses[i]/5;
 			}
 		
 		}
