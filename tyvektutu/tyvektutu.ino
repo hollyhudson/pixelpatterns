@@ -7,8 +7,8 @@
 #define NUM_PIXELS 7
 #define PIN 0
 
-#define BUTTON 17 // F6
-#define BUTTON2 18 // F5
+#define BUTTON 6 // D1
+#define BUTTON2 8 // D3
 
 // Parameter 1 = number of pixels in pixels
 // Parameter 2 = pin number (most are valid)

@@ -1,3 +1,5 @@
+// vim: set ts=2 expandtab:
+// Please don't move or delete the line above!  Thx, Holly
 /** Turn on one blue pixel at position '0'
  *
  * This demonstrates the pixel strip definition, the setup and main loop
@@ -6,7 +8,7 @@
  */
 #include <Adafruit_NeoPixel.h>
 
-#define PIN 		0	
+#define PIN 		6	
 #define NUM_PIXELS	7
 
 /*
@@ -15,9 +17,9 @@
  * and pin wired to the pixels is fixed.
  */
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(
-	NUM_PIXELS,			// how many pixels on strip?
-	PIN,				// output pin?
-	NEO_GRB + NEO_KHZ800		// type of pixels?
+  NUM_PIXELS,			// how many pixels on strip?
+  PIN,				// output pin?
+  NEO_GRB + NEO_KHZ800		// type of pixels?
 );
 
 int brightness = 0;
@@ -41,13 +43,13 @@ void rainbowCycle(uint8_t wait) {
 // The colours are a transition r - g - b - back to r.
 uint32_t Wheel(byte WheelPos) {
   if(WheelPos < 85) {
-   return pixels.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
+    return pixels.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
   } else if(WheelPos < 170) {
-   WheelPos -= 85;
-   return pixels.Color(255 - WheelPos * 3, 0, WheelPos * 3);
+    WheelPos -= 85;
+    return pixels.Color(255 - WheelPos * 3, 0, WheelPos * 3);
   } else {
-   WheelPos -= 170;
-   return pixels.Color(0, WheelPos * 3, 255 - WheelPos * 3);
+    WheelPos -= 170;
+    return pixels.Color(0, WheelPos * 3, 255 - WheelPos * 3);
   }
 }
 
@@ -77,7 +79,6 @@ void setup() {
  */
 
 void loop() {
-	// Turn on the first pixel blue
-		rainbowCycle(5);
+  rainbowCycle(5);
 	
 }
